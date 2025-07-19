@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Mail, Lock } from "lucide-react";
-import coverImg from "../../assets/lap-cover-image.avif"; // e-learning image
+import coverImg from "../../assets/lap-cover-image.avif";
 
 const FloatingInput = ({ icon: Icon, type, placeholder, value, onChange, name }) => {
   const [focused, setFocused] = useState(false);

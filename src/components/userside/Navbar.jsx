@@ -21,8 +21,8 @@ const Navbar = () => {
 
         {/* Auth buttons */}
         <div className="space-x-3">
-          <a href="#" className="px-4 py-1.5 border border-purple-600 text-purple-600 rounded hover:bg-purple-600 hover:text-white transition">Login</a>
-          <a href="#" className="px-4 py-1.5 bg-purple-600 text-white rounded hover:bg-purple-700 transition">Register</a>
+          <a href="/login" className="px-4 py-1.5 border border-purple-600 text-purple-600 rounded hover:bg-purple-600 hover:text-white transition">Login</a>
+          <a href="/register" className="px-4 py-1.5 bg-purple-600 text-white rounded hover:bg-purple-700 transition">Register</a>
         </div>
       </div>
     </nav>
