@@ -7,7 +7,7 @@ const Navbar = () => {
         {/* Logo and Title */}
         <div className="flex items-center space-x-2">
           <img src="/fevicon.svg" alt="Vector Icon" className="w-7 h-7" />
-          <span className="text-2xl font-bold text-gray-900">Vector</span>
+          <span className="text-2xl font-bold text-violet-700">Vector</span>
         </div>
 
         {/* Navigation links */}

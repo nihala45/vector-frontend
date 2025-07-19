@@ -1,9 +1,17 @@
 import React, { useState } from "react";
 import { Mail, Lock, User } from "lucide-react";
-import coverImg from "../../assets/lap-cover-image.avif"; // e-learning image
+import coverImg from "../../assets/lap-cover-image.avif"; // E-learning image
 
 
-const FloatingInput = ({ icon: Icon, type, placeholder, value, onChange, name }) => {
+const FloatingInput = ({
+  icon: Icon,
+  type,
+  placeholder,
+  value,
+  onChange,
+  name,
+  autoComplete,
+}) => {
   const [focused, setFocused] = useState(false);
 
   return (
@@ -22,6 +30,7 @@ const FloatingInput = ({ icon: Icon, type, placeholder, value, onChange, name })
         onFocus={() => setFocused(true)}
         onBlur={() => setFocused(false)}
         placeholder=" "
+        autoComplete={autoComplete}
         className="peer w-full pl-12 pr-4 py-3 text-sm bg-transparent border-b border-gray-300 text-gray-900 focus:outline-none focus:border-violet-700 transition-all"
         required
       />
@@ -32,7 +41,7 @@ const FloatingInput = ({ icon: Icon, type, placeholder, value, onChange, name })
   );
 };
 
-const AuthPage = () => {
+const Register = () => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -43,33 +52,50 @@ const AuthPage = () => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
-  return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-violet-100 to-white relative overflow-hidden">
-      {/* Top Left Vector */}
-      <img src='./fevicon.svg' alt="Vector Top Left" className="absolute top-4 left-4 w-12 h-12 z-10" />
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("Submitted data:", formData);
+    // You can add backend integration here
+  };
 
-      
+  return (
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-violet-200 to-white relative overflow-hidden">
+      {/* Top Left Logo */}
+      <div className="absolute top-4 left-4 flex items-center gap-2 z-10">
+        <img src='./fevicon.svg' alt="Vector Icon" className="w-10 h-10" />
+        <h3 className="text-2xl font-bold text-violet-700">Vector</h3>
+      </div>
 
       {/* Main Container */}
-      <div className="flex flex-col md:flex-row w-full max-w-6xl shadow-2xl rounded-3xl overflow-hidden z-20 bg-white">
-        {/* Left Side Image with Message */}
+      <div className="flex flex-col md:flex-row w-full max-w-7xl max-h-300 shadow-2xl rounded-3xl overflow-hidden z-20 bg-white">
+        {/* Left Side Image with Overlay Text */}
         <div className="hidden md:flex md:w-1/2 relative">
-          <img src={coverImg} alt="E-learning" className="w-full h-full object-cover" />
+          <img
+            src={coverImg}
+            alt="E-learning"
+            className="w-full h-full object-cover"
+          />
           <div className="absolute inset-0 bg-violet-700/60 backdrop-blur-sm" />
           <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center text-white p-8">
             <h2 className="text-3xl font-bold mb-2">Learn. Grow. Succeed.</h2>
-            <p className="text-lg font-light">Empower your future, one click at a time.</p>
+            <p className="text-lg font-light">
+              Empower your future, one click at a time.
+            </p>
           </div>
         </div>
 
-        {/* Right Side Login/Register Box */}
-        <div className="w-full md:w-1/2 p-10 space-y-6 bg-white relative z-20">
+        {/* Right Side Register Form */}
+        <div className="w-full md:w-1/2 p-6 md:p-14 space-y-6 bg-white relative z-20">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-violet-800">Join Our Platform</h2>
-            <p className="text-sm text-gray-500">Create your account and start your journey</p>
+            <h2 className="text-3xl font-bold text-violet-800">
+              Join Our Platform
+            </h2>
+            <p className="text-sm text-gray-500">
+              Create your account and start your journey
+            </p>
           </div>
 
-          <form className="space-y-6">
+          <form className="space-y-6" onSubmit={handleSubmit}>
             <FloatingInput
               icon={User}
               type="text"
@@ -77,6 +103,7 @@ const AuthPage = () => {
               placeholder="Username"
               value={formData.username}
               onChange={handleChange}
+              autoComplete="username"
             />
             <FloatingInput
               icon={Mail}
@@ -85,6 +112,7 @@ const AuthPage = () => {
               placeholder="Email"
               value={formData.email}
               onChange={handleChange}
+              autoComplete="email"
             />
             <FloatingInput
               icon={Lock}
@@ -93,6 +121,7 @@ const AuthPage = () => {
               placeholder="Password"
               value={formData.password}
               onChange={handleChange}
+              autoComplete="new-password"
             />
             <button
               type="submit"
@@ -104,7 +133,10 @@ const AuthPage = () => {
 
           <p className="text-center text-sm text-gray-600">
             Already have an account?{" "}
-            <a href="/login" className="text-violet-700 font-medium hover:underline">
+            <a
+              href="/login"
+              className="text-violet-700 font-medium hover:underline"
+            >
               Log in here
             </a>
           </p>
@@ -114,4 +146,4 @@ const AuthPage = () => {
   );
 };
 
-export default AuthPage;
+export default Register;
