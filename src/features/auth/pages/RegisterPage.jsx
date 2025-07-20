@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Mail, Lock, User } from "lucide-react";
-import coverImg from "../../assets/lap-cover-image.avif"; 
+import coverImg from "../../../assets/lap-cover-image.avif"; 
 
 const FloatingInput = ({
   icon: Icon,
@@ -12,6 +12,8 @@ const FloatingInput = ({
   autoComplete,
 }) => {
   const [focused, setFocused] = useState(false);
+
+  
 
 
   
@@ -42,7 +44,7 @@ const FloatingInput = ({
   );
 };
 
-const Register = () => {
+const RegisterPage = () => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -138,4 +140,4 @@ const Register = () => {
   );
 };
 
-export default Register;
+export default RegisterPage;

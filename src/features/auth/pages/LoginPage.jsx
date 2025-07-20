@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { Mail, Lock, User } from "lucide-react";
-import coverImg from "../../assets/lap-cover-image.avif"; // ✅ Adjust this path if needed
+import coverImg from '../../../assets/lap-cover-image.avif'
 
 const FloatingInput = ({
   icon: Icon,
@@ -40,7 +40,7 @@ const FloatingInput = ({
   );
 };
 
-const Login = () => {
+const LoginPage = () => {
   const [formData, setFormData] = useState({
     username: "",
     email: "",
@@ -132,4 +132,4 @@ const Login = () => {
   );
 };
 
-export default Login;
+export default LoginPage;

@@ -5,10 +5,10 @@ import Features from '../../components/userside/Features'
 import CoursePreview from '../../components/userside/CoursePreview'
 import Testimonials from '../../components/userside/Testimonials'
 import WhyChooseUs from '../../components/userside/WhyChooseUs'
-import JoinNowBanner from '../../components/userside/JoinNowBanner'
 import { Parentheses } from 'lucide-react'
 import Partners from '../../components/userside/Partners'
 import Footer from '../../components/userside/Footer'
+import Banner from '../../components/common/Banner'
 
 const Home = () => {
   return (
@@ -17,7 +17,7 @@ const Home = () => {
       <Header/>
       <Features/>
       <CoursePreview/>
-      <JoinNowBanner/>
+      <Banner/>
       <Testimonials/>
       <WhyChooseUs/>
       <Partners/>
