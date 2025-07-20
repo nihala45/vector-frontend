@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import { Mail, Lock, User } from "lucide-react";
-import coverImg from "../../assets/lap-cover-image.avif"; // E-learning image
-
+import coverImg from "../../assets/lap-cover-image.avif"; 
 
 const FloatingInput = ({
   icon: Icon,
@@ -14,8 +13,10 @@ const FloatingInput = ({
 }) => {
   const [focused, setFocused] = useState(false);
 
+
+  
   return (
-    <div className="relative z-0 w-full group">
+    <div className="relative w-full group">
       <Icon
         className={`absolute left-4 top-1/2 -translate-y-1/2 text-violet-400 transition-all duration-300 ${
           focused ? "text-violet-700 scale-110" : ""
@@ -54,40 +55,41 @@ const Register = () => {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log("Submitted data:", formData);
-    // You can add backend integration here
+    console.log("Submitted:", formData);
   };
 
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-violet-200 to-white relative overflow-hidden">
-      {/* Top Left Logo */}
-      <div className="absolute top-4 left-4 flex items-center gap-2 z-10">
-        <img src='./fevicon.svg' alt="Vector Icon" className="w-10 h-10" />
-        <h3 className="text-2xl font-bold text-violet-700">Vector</h3>
-      </div>
-
-      {/* Main Container */}
-      <div className="flex flex-col md:flex-row w-full max-w-7xl max-h-300 shadow-2xl rounded-3xl overflow-hidden z-20 bg-white">
-        {/* Left Side Image with Overlay Text */}
+    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-violet-100 via-white to-indigo-50 px-4">
+      <div className="flex flex-col md:flex-row w-full max-w-6xl bg-white rounded-3xl overflow-hidden shadow-xl border border-gray-200">
+        {/* Left side - image */}
         <div className="hidden md:flex md:w-1/2 relative">
           <img
             src={coverImg}
-            alt="E-learning"
+            alt="Cover"
             className="w-full h-full object-cover"
           />
-          <div className="absolute inset-0 bg-violet-700/60 backdrop-blur-sm" />
-          <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-center text-white p-8">
-            <h2 className="text-3xl font-bold mb-2">Learn. Grow. Succeed.</h2>
-            <p className="text-lg font-light">
+          <div className="absolute inset-0 bg-violet-700/50 backdrop-blur-sm" />
+          <div className="absolute inset-0 z-10 flex flex-col justify-center items-center text-white text-center p-8">
+            <h2 className="text-3xl font-semibold mb-2">Learn. Grow. Succeed.</h2>
+            <p className="text-lg font-light max-w-sm">
               Empower your future, one click at a time.
             </p>
           </div>
         </div>
 
-        {/* Right Side Register Form */}
-        <div className="w-full md:w-1/2 p-6 md:p-14 space-y-6 bg-white relative z-20">
+        {/* Right side - form */}
+        <div className="w-full md:w-1/2 px-6 py-10 md:p-14 space-y-6 relative z-20">
+          {/* Logo Centered */}
+          <div className="flex justify-center mb-4">
+            <div className="flex items-center gap-3">
+              <img src="/fevicon.svg" alt="Vector Icon" className="w-10 h-10" />
+              <h3 className="text-3xl font-bold text-violet-700">Vector</h3>
+            </div>
+          </div>
+
+          {/* Heading */}
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-violet-800">
+            <h2 className="text-2xl font-semibold text-gray-800">
               Join Our Platform
             </h2>
             <p className="text-sm text-gray-500">
@@ -95,47 +97,37 @@ const Register = () => {
             </p>
           </div>
 
+          {/* Form */}
           <form className="space-y-6" onSubmit={handleSubmit}>
-            <FloatingInput
-              icon={User}
-              type="text"
-              name="username"
-              placeholder="Username"
-              value={formData.username}
-              onChange={handleChange}
-              autoComplete="username"
-            />
-            <FloatingInput
-              icon={Mail}
-              type="email"
-              name="email"
-              placeholder="Email"
-              value={formData.email}
-              onChange={handleChange}
-              autoComplete="email"
-            />
-            <FloatingInput
-              icon={Lock}
-              type="password"
-              name="password"
-              placeholder="Password"
-              value={formData.password}
-              onChange={handleChange}
-              autoComplete="new-password"
-            />
+            <input
+            type="text"
+            placeholder="Full Name"
+            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-400"
+          />
+          <input
+            type="email"
+            placeholder="Email"
+            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-400"
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            className="w-full px-4 py-3 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-violet-400"
+          />
             <button
               type="submit"
-              className="w-full py-3 bg-violet-700 hover:bg-violet-800 text-white font-semibold rounded-xl transition duration-300 shadow-md"
+              className="w-full py-3 bg-violet-600 hover:bg-violet-700 text-white font-semibold rounded-xl transition duration-300 shadow-md"
             >
               Create Account
             </button>
           </form>
 
+          {/* Login Link */}
           <p className="text-center text-sm text-gray-600">
             Already have an account?{" "}
             <a
               href="/login"
-              className="text-violet-700 font-medium hover:underline"
+              className="text-violet-600 font-medium hover:underline"
             >
               Log in here
             </a>
